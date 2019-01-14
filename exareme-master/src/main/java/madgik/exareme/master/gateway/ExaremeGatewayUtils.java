@@ -5,15 +5,16 @@ package madgik.exareme.master.gateway;
 
 import com.google.gson.Gson;
 
-import madgik.exareme.utils.properties.AdpProperties;
-import madgik.exareme.utils.properties.GenericProperties;
-
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.List;
 import java.util.Map;
+
+import madgik.exareme.utils.properties.AdpProperties;
+import madgik.exareme.utils.properties.GenericProperties;
 
 /**
  * @author heraldkllapi
@@ -36,9 +37,13 @@ public class ExaremeGatewayUtils {
   public static final String GW_API_STREAMQUERY;
   public static final String GW_API_HISTORICALSTREAMQUERY;
   public static final String GW_API_STREAMQUERY_INFO;
+  public static final String GW_API_MINING_ALGORITHMS;
+  public static final String GW_API_MINING_QUERY;
+
 
   // server
   public static final int GW_PORT;
+  public static final int GW_CONTROL_PORT;
   public static final int GW_BUFFERSIZE_KB;
   public static final boolean GW_NODELAY;
   public static final int GW_WAIT_TERM_SEC;
@@ -64,6 +69,8 @@ public class ExaremeGatewayUtils {
   public static final String CONTEXT_DB_CONNECTOR;
   private static final Logger log = Logger.getLogger(ExaremeGatewayUtils.class);
   public static final String REQUEST_TIMEOUT;
+  public static final int RESPONSE_BUFFER_SIZE;
+
 
   static {
     GenericProperties properties = AdpProperties.getGatewayProperties();
@@ -73,6 +80,7 @@ public class ExaremeGatewayUtils {
 
     GW_MODE = properties.getString("gateway.mode");
     GW_PORT = properties.getInt("gateway.port");
+    GW_CONTROL_PORT = properties.getInt("gateway.controlPort");
     GW_BUFFERSIZE_KB = properties.getInt("gateway.bufferSizeKB");
     GW_NODELAY = properties.getBoolean("gateway.noDelay");
     GW_WAIT_TERM_SEC = properties.getInt("gateway.waitForTerminationSec");
@@ -92,6 +100,9 @@ public class ExaremeGatewayUtils {
     GW_API_STREAMQUERY_DELETE = properties.getString("gateway.api.streamquery.delete");
     GW_API_STREAMQUERY_INFO = properties.getString("gateway.api.streamquery.info");
     GW_API_TABLESMETADATA = properties.getString("gateway.api.tablesmetadata");
+    GW_API_MINING_ALGORITHMS = properties.getString("gateway.api.mining.algorithms");
+    GW_API_MINING_QUERY= properties.getString("gateway.api.mining.query");
+
 
     CONTEXT_DB_CLIENT = properties.getString("gateway.context.db.client");
     CONTEXT_DB_CONNECTOR = properties.getString("gateway.context.db.connector");
@@ -113,17 +124,20 @@ public class ExaremeGatewayUtils {
     
     REQUEST_TIMEOUT = properties.getString("gateway.request.timeout");
 
-    log.trace("Gateway mode         :" + GW_MODE);
-    log.trace("Listening port       :" + String.valueOf(GW_PORT));
-    log.trace("Size of Buffer in KB :" + String.valueOf(GW_BUFFERSIZE_KB));
-    log.trace("TCP no delay         :" + String.valueOf(GW_NODELAY));
-    log.trace("Shutdown wait in secs:" + String.valueOf(GW_WAIT_TERM_SEC));
-    log.trace("API Query            :" + GW_API_QUERY);
-    log.trace("Request database     :" + REQUEST_DATABASE);
-    log.trace("Request query        :" + REQUEST_QUERY);
-    log.trace("Request user         :" + REQUEST_USER);
-    log.trace("Response schema      :" + RESPONSE_SCHEMA);
-    log.trace("Response time        :" + RESPONSE_TIME);
+    RESPONSE_BUFFER_SIZE = properties.getInt("gateway.async.buffer.size");
+
+    log.trace("Gateway mode          :" + GW_MODE);
+    log.trace("Listening port        :" + String.valueOf(GW_PORT));
+    log.trace("Listening control port:" + String.valueOf(GW_CONTROL_PORT));
+    log.trace("Size of Buffer in KB  :" + String.valueOf(GW_BUFFERSIZE_KB));
+    log.trace("TCP no delay          :" + String.valueOf(GW_NODELAY));
+    log.trace("Shutdown wait in secs :" + String.valueOf(GW_WAIT_TERM_SEC));
+    log.trace("API Query             :" + GW_API_QUERY);
+    log.trace("Request database      :" + REQUEST_DATABASE);
+    log.trace("Request query         :" + REQUEST_QUERY);
+    log.trace("Request user          :" + REQUEST_USER);
+    log.trace("Response schema       :" + RESPONSE_SCHEMA);
+    log.trace("Response time         :" + RESPONSE_TIME);
 
     log.trace("Default properties successfully initialized.");
   }
@@ -135,7 +149,7 @@ public class ExaremeGatewayUtils {
       try {
         getValuesFromJDBC(content, dict);
       } catch (Exception e) {
-        getValuesFromWeb(content, dict);
+          getValuesFromWeb(content, dict);
       }
     }
   }
@@ -152,9 +166,17 @@ public class ExaremeGatewayUtils {
     String[] parts = content.split("&");
     for (String p : parts) {
       int split = p.indexOf("=");
+      if (split == -1) return;
       String key = p.substring(0, split);
       String value = p.substring(split + 1, p.length());
       dict.put(key, normalize(value));
+    }
+  }
+  public static void getValuesFromJson(String content, Map<String, String> dict) throws UnsupportedEncodingException {
+    Gson g = new Gson();
+    List<Map> parameters = new Gson().fromJson(content, List.class);
+    for (Map parameter : parameters) {
+      dict.put((String)parameter.get("name"), (String)parameter.get("value"));
     }
   }
 

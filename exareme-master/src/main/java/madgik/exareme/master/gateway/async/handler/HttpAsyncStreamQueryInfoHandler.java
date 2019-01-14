@@ -1,19 +1,15 @@
 package madgik.exareme.master.gateway.async.handler;
 
-import org.apache.commons.io.IOUtils;
+import com.google.gson.Gson;
+import madgik.exareme.master.gateway.OptiqueStreamQueryMetadata.StreamRegisterQuery;
 import org.apache.http.*;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicHttpResponse;
 import org.apache.http.nio.entity.NStringEntity;
 import org.apache.http.nio.protocol.*;
 import org.apache.http.protocol.HttpContext;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
-import java.io.StringWriter;
 import java.util.Locale;
 
 public class HttpAsyncStreamQueryInfoHandler implements HttpAsyncRequestHandler<HttpRequest> {
@@ -39,37 +35,25 @@ public class HttpAsyncStreamQueryInfoHandler implements HttpAsyncRequestHandler<
             throw new UnsupportedHttpVersionException(method + "not supported.");
         }
 
-        String target = httpRequest.getRequestLine().getUri();
-
-        // TODO: DIRTY! ADD PROXY
-        CloseableHttpClient httpclient = HttpClients.createDefault();
-        HttpGet httpGet = new HttpGet("http://127.0.0.1:9595" + target);
-
-        CloseableHttpResponse response = null;
+        String infoJson = null;
         try {
-            response = httpclient.execute(httpGet);
+            Gson gson = new Gson();
+            StreamRegisterQuery registerQuery = StreamRegisterQuery.getInstance();
+            infoJson = gson.toJson(registerQuery.getQueriesInfo());
+        } catch (Exception ex) {
+            log.error(ex);
+            HttpResponse response =
+                new BasicHttpResponse(HttpVersion.HTTP_1_1, HttpStatus.SC_INTERNAL_SERVER_ERROR,
+                    ex.getMessage());
 
-            if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
-                httpResponse.setStatusCode(response.getStatusLine().getStatusCode());
-            }
-
-            httpResponse.addHeader("Access-Control-Allow-Origin", "*");
-
-            HttpEntity entity = response.getEntity();
-            if (entity != null) {
-                StringWriter writer = new StringWriter();
-                IOUtils.copy(entity.getContent(), writer, "UTF-8");
-                httpResponse.setEntity(new StringEntity(writer.toString()));
-                httpExchange.submitResponse(new BasicAsyncResponseProducer(httpResponse));
-            }
-        } catch (IOException e) {
-            log.error(e);
-            response.setStatusCode(HttpStatus.SC_INTERNAL_SERVER_ERROR);
-            response.setEntity(new NStringEntity("ERROR"));
-        } finally {
-            if (response != null) {
-                response.close();
-            }
+            httpExchange.submitResponse(new BasicAsyncResponseProducer(response));
+            return;
         }
+
+        HttpResponse response = new BasicHttpResponse(HttpVersion.HTTP_1_1, HttpStatus.SC_OK, "OK");
+        HttpEntity entity = new NStringEntity(infoJson);
+
+        response.setEntity(entity);
+        httpExchange.submitResponse(new BasicAsyncResponseProducer(response));
     }
 }

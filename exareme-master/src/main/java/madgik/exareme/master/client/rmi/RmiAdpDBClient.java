@@ -13,6 +13,7 @@ import madgik.exareme.master.client.AdpDBClientProperties;
 import madgik.exareme.master.client.AdpDBClientQueryStatus;
 import madgik.exareme.master.connector.AdpDBConnector;
 import madgik.exareme.master.connector.AdpDBConnectorFactory;
+import madgik.exareme.master.connector.DataSerialization;
 import madgik.exareme.master.engine.AdpDBExecutor;
 import madgik.exareme.master.engine.AdpDBManager;
 import madgik.exareme.master.engine.AdpDBOptimizer;
@@ -26,7 +27,6 @@ import madgik.exareme.master.registry.Registry;
 import madgik.exareme.worker.art.container.ContainerJobs;
 import madgik.exareme.worker.art.container.ContainerProxy;
 import madgik.exareme.worker.art.executionPlan.parser.expression.Operator;
-import madgik.exareme.worker.art.executionPlan.parser.expression.OperatorLink;
 import madgik.exareme.worker.art.executionPlan.parser.expression.PlanExpression;
 import madgik.exareme.worker.art.registry.ArtRegistryLocator;
 import org.apache.log4j.Logger;
@@ -182,18 +182,27 @@ public class RmiAdpDBClient implements AdpDBClient {
 
 
 
-        int count=0;
-        for(OperatorLink ol: execPlan.getOperatorLinkList()){
-            if (count > 0) {
-                edges.append(",");
+        int count = 0;
+        for (ConcreteOperator op : plan.getGraph().getOperators()) {
+            if (plan.getGraph().getOutputLinks(op.opID).size() == 4) {
+                countrepart++;
             }
+            for (Link link : plan.getGraph().getOutputLinks(op.opID)) {
 
-            edges.append("\n{from: ").append(opidToOp.get(ol.from)).append(", to: ").append(opidToOp.get(ol.to))
-                    .append("}");
-            count++;
+                // for(Link link :links){
+                if (count > 0) {
+                    edges.append(",");
+                }
+                String to = plan.getGraph().getOperator(link.to.opID).getName();
+                String from = plan.getGraph().getOperator(link.from.opID).getName();
+                ;
+                edges.append("\n{from: ").append(opidToOp.get(from)).append(", to: ")
+                    .append(opidToOp.get(to)).append("}");
+                count++;
+                //  }
 
+            }
         }
-
 
         nodes.append("]);\n");
         edges.append(" ]);\n");
@@ -261,11 +270,19 @@ public class RmiAdpDBClient implements AdpDBClient {
         return ExportToDotty.exportToDotty(plan.getGraph());
     }
 
-    @Override public InputStream readTable(String tableName) throws RemoteException {
+
+    @Override
+    public InputStream readTable(String tableName) throws RemoteException {
+        return readTable(tableName, DataSerialization.ldjson);
+    }
+
+    @Override
+    public InputStream readTable(String tableName, DataSerialization ds) throws RemoteException {
         log.debug("readTable");
         HashMap<String, Object> additionalProps = new HashMap<String, Object>();
         additionalProps.put("time", -1);
         additionalProps.put("errors", new ArrayList<Object>());
+        additionalProps.put("dataSerialization", ds);
         AdpDBConnector adpDBConnector = AdpDBConnectorFactory.createAdpDBConnector();
         log.debug("new connector");
         return adpDBConnector.readTable(tableName, additionalProps, properties);
