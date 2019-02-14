@@ -1,4 +1,4 @@
-package madgik.exareme.worker.art.client.armExps;///**
+///**
 // * Copyright MaDgIK Group 2010 - 2015.
 // */
 //package madgik.exareme.db.art.client.armExps;

@@ -1,4 +1,4 @@
-package madgik.exareme.worker.art.executionPlan;//package madgik.exareme.db.art.executionPlan;
+//package madgik.exareme.db.art.executionPlan;
 //
 //import junit.framework.TestCase;
 //import madgik.exareme.db.art.executionPlan.entity.BufferEntity;

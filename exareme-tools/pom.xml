@@ -15,7 +15,7 @@
 
     <modules>
         <module>madis</module>
-        <module>stream-tools</module>
+        <module>algorithms-dev</module>
     </modules>
 
 </project>

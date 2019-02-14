@@ -1,6 +1,7 @@
-import setpath
-import functions
 import random
+
+import functions
+
 # coding: utf-8
 import math
 import json
@@ -86,10 +87,10 @@ def sqroot(*args):
     """
 
     try:
-        ret=math.sqrt(args[0])
+        ret=math.sqrt(float(args[0]))
     except ValueError:
         return None
-    
+
     return ret
 
 sqroot.registered=True
@@ -137,7 +138,6 @@ def simplify_fraction(f):
     >>> simplify_fraction(Fraction(55555555294967297,2))
     '[55555555294967297, 2]'
     """
-
     if f.denominator == 1 and f.numerator < 9223372036854775808:
         return f.numerator
     elif float(f) < 4294967296.0:
@@ -167,6 +167,8 @@ def farith(*args):
 
     s = []
     for i in reversed(args):
+        if i is None:
+            continue
         if i in ('*', '/', '-', '+'):
             operand1 = s.pop()
             operand2 = s.pop()
@@ -186,11 +188,15 @@ def farith(*args):
             else:
                 try:
                     s.append(Fraction(*json.loads(i)))
-                except ValueError, e:
-                    raise functions.OperatorError('farith',"invalid expression found: '" + i +"'")
+                except Exception as e:
+                    import traceback
+                    traceback.print_exc()
+                    raise functions.OperatorError("Farith", "invalid expression found: %s" % str(i))
 
-    return simplify_fraction(s.pop())
-
+    if len(s) < 1:
+        raise functions.OperatorError("Farith", "No args")
+    #return simplify_fraction(s.pop())
+    return float(s.pop())
 farith.registered = True
 
 
@@ -246,7 +252,6 @@ if not ('.' in __name__):
     new function you create
     """
     import sys
-    import setpath
     from functions import *
     testfunction()
     if __name__ == "__main__":

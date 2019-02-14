@@ -66,7 +66,7 @@ class Cache:
         self.cursor = querycursor
         self.ordercaches = {}
         self.orderbys = []
-        self.maxlen = 250
+        self.maxlen = 1000
         self.stopiteration = False
         self.cachetotalwindownumber = 0
         self.tempcachelist = None

@@ -147,7 +147,7 @@ public class JsonParserTest {
         //            System.out.println(buffer.bufferName);
         //        }
         System.out.println("containers");
-        for (Container cont : pe.containersList) {
+        for (madgik.exareme.worker.art.executionPlan.parser.expression.Container cont : pe.containersList) {
             System.out.println(cont.name);
         }
         System.out.println("operators");

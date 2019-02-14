@@ -1,9 +1,6 @@
-import json
-import urllib
-import urllib2
+
 
 import functions
-
 
 registered = True
 external_query = True
@@ -20,7 +17,9 @@ default_dict = {
 class ExaTable(functions.vtable.vtbase.VT):
 
     def VTiter(self, *parsedArgs, **envars):
-
+        import json
+        import urllib
+        import urllib2
         # get site properties
         site_list, site_dict = self.full_parse(parsedArgs)
 

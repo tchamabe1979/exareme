@@ -1,4 +1,4 @@
-package madgik.exareme.worker.arm;//package madgik.exareme.worker.arm;
+//package madgik.exareme.worker.arm;
 //
 //import org.apache.hadoop.conf.Configuration;
 //import org.apache.hadoop.fs.FSDataOutputStream;

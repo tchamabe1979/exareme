@@ -1,0 +1,19 @@
+{
+  "algorithms"  : [],
+  "endpoints"   : [],
+  "local_engine_default" : {
+    "name"        : "postgresrawfilters", 
+    "parameters"  : [
+	"<raw_username>",
+      	"<raw_password>",
+      	"<raw_host>",
+      	"<raw_port>",
+      	"<raw_endpoint>",
+      	"<raw_resultsperpage>",
+      	"<raw_datakey>",
+        "<raw_db>"
+    ],
+    "query" : "select * from(file header:t file:/data/mip_federation_features.csv)"
+  }
+}
+

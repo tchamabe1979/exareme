@@ -1,4 +1,4 @@
-package madgik.exareme.worker.art.executionPlan;//package madgik.exareme.db.art.executionPlan;
+//package madgik.exareme.db.art.executionPlan;
 //
 //import madgik.exareme.utils.file.FileUtil;
 //

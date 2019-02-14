@@ -12,7 +12,7 @@ import java.sql.*;
  */
 public class SQLite {
 
-    private static Logger log = Logger.getLogger(SQLite.class);
+    private static Logger log = Logger.getLogger(madgik.exareme.utils.embedded.db.SQLite.class);
 
     public static Connection createConnection(String database) throws SQLException {
 
@@ -28,7 +28,7 @@ public class SQLite {
     }
 
     public static void main(String[] args) throws Exception {
-        Connection conn = SQLite.createConnection("");
+        Connection conn = madgik.exareme.utils.embedded.db.SQLite.createConnection("");
         Statement stat = conn.createStatement();
         stat.executeUpdate(
             "drop table if exists people; " + "create table people (name, occupation);");

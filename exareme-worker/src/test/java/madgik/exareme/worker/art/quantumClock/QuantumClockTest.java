@@ -1,4 +1,4 @@
-package madgik.exareme.worker.art.quantumClock;//package madgik.exareme.worker.art.quantumClock;
+//package madgik.exareme.worker.art.quantumClock;
 //
 //import junit.framework.TestCase;
 //import org.apache.log4j.Level;

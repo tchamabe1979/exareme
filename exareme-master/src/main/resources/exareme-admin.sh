@@ -7,9 +7,60 @@
 # set up environment
 ####################################################################################################
 #echo "Setting up environment..."
-[[ -z $EXAREME_HOME ]] && export EXAREME_HOME="$HOME"/exareme
-. $EXAREME_HOME/etc/exareme/exareme-env.sh
+# set up home dir
+if [ -z $EXAREME_HOME ]; then
+  if [ -d "$HOME/exareme" ]; then
+    EXAREME_HOME="$HOME/exareme";
+    export EXAREME_HOME="$HOME/exareme";
+  else
+    EXAREME_HOME="$HOME/exareme";
+    export EXAREME_HOME="$(pwd)";
+  fi
+fi
+echo "EXAREME HOME DIR : $EXAREME_HOME";
 
+# load env
+. $EXAREME_HOME/etc/exareme/exareme-env.sh  &> /dev/null
+
+# set up master with priority on conf file and then on env var or get the local ip.
+EXAREME_MASTER_FILE="$EXAREME_HOME/etc/exareme/master"
+if [[ -s "$EXAREME_MASTER_FILE" ]]; then
+  EXAREME_MASTER=$( < $EXAREME_MASTER_FILE);
+elif [ ! $EXAREME_MASTER ]; then
+    EXAREME_MASTER=`/sbin/ifconfig $1 | grep "inet " | awk -F: '{print $2}'  | grep '10.20' | awk '{print $1;}' | head -n 1`;	#TODO 10.20 always?
+fi
+echo "EXAREME MASTER HOST : $EXAREME_MASTER";
+
+# set up workers with priority on conf file and then on env var or assume none.
+EXAREME_WORKERS_FILE="$EXAREME_HOME/etc/exareme/workers"
+if [[ -e $EXAREME_WORKERS_FILE ]]; then
+  if [[ ! -s $EXAREME_WORKERS_FILE ]]; then
+    if [ ! $EXAREME_WORKERS ]; then
+        EXAREME_WORKERS=();
+    fi
+  else
+    EXAREME_WORKERS=$( awk '{print $1}' $EXAREME_WORKERS_FILE)
+    #EXAREME_WORKERS=$( < $EXAREME_WORKERS_FILE);
+  fi
+else
+  if [[ ! $EXAREME_WORKERS ]]; then
+    EXAREME_WORKERS=();
+  fi
+fi
+#echo "EXAREME WORKERS : $( echo $EXAREME_WORKERS | wc -w )"
+####################################################################################################
+# ssh
+####################################################################################################
+if [[ -e "$EXAREME_HOME/etc/exareme/config" ]]; then
+    cp "$EXAREME_HOME/etc/exareme/config" ~/.ssh/
+    cp "$EXAREME_HOME/etc/exareme/id_rsa" ~/.ssh/
+    cp "$EXAREME_HOME/etc/exareme/id_rsa.pub" ~/.ssh/
+    cp "$EXAREME_HOME/etc/exareme/authorized_keys" ~/.ssh/
+    service ssh status
+    if [[ $? -ne 0 ]]; then
+        service ssh restart && service ssh status
+    fi
+fi
 ####################################################################################################
 # parse command line arguments
 ####################################################################################################
@@ -100,12 +151,12 @@ fi
 # execute
 ####################################################################################################
 if [[ "true" == $EXAREME_ADMIN_LOCAL ]]; then   # run locally
-#    echo "Running in local mode..."
+   # echo "Running in local mode..."
 
     function start_exareme(){ # starts exareme daemon
         # set env
-        EXAREME_CURRENT_IP=$(
-            ALL_IPS=$(/sbin/ifconfig $1 | grep "inet " | awk -F: '{print $2}' | awk '{print $1}')
+        EXAREME_CURRENT_IP=$(		
+            ALL_IPS=$(/sbin/ifconfig $1 | grep "inet " | awk -F: '{print $2}' | grep '10.20' | awk '{print $1}')
             for CURRENT_NODE_IP in $ALL_IPS; do
                 for NODE_IP in $(cat $EXAREME_HOME/etc/exareme/master) $(cat $EXAREME_HOME/etc/exareme/workers); do
                     if [[ X$NODE_IP == X$CURRENT_NODE_IP ]]; then
@@ -115,6 +166,9 @@ if [[ "true" == $EXAREME_ADMIN_LOCAL ]]; then   # run locally
                 done
             done
         )
+        if [ -n $EXAREME_CURRENT_IP ]; then
+            EXAREME_CURRENT_IP=`/sbin/ifconfig $1 | grep "inet " | awk -F: '{print $2}'  | grep '10.20' | awk '{print $1;}' | head -n 1`;
+        fi
         EXAREME_ADMIN_JMX_PORT=10000
         EXAREME_ADMIN_CLASS_PATH="$EXAREME_HOME/lib/exareme/*:$EXAREME_HOME/lib/exareme/external/*"
         EXAREME_ADMIN_MASTER_CLASS="madgik.exareme.master.admin.StartMaster"
@@ -129,36 +183,41 @@ if [[ "true" == $EXAREME_ADMIN_LOCAL ]]; then   # run locally
                             -Djava.security.egd=file:///dev/urandom "
 
         # determine master/worker
-        mkdir -p $EXAREME_HOME/var/log $EXAREME_HOME/var/run
-        if [[ "$EXAREME_MASTER_IP" == "$EXAREME_CURRENT_IP" ]]; then
+        if [[ "$EXAREME_MASTER" == "$EXAREME_CURRENT_IP" ]]; then
             DESC="exareme-master"
-            STREAMDESC="stream-master"
             EXAREME_ADMIN_CLASS=$EXAREME_ADMIN_MASTER_CLASS
             EXAREME_ADMIN_CLASS_ARGS=""
-            EXAREME_STREAM_TOOL="$EXAREME_HOME/lib/stream-tools/optiquemaster --port 9595 --madis $EXAREME_HOME/lib/madis/src/mterm.py"
-            $EXAREME_STREAM_TOOL > $EXAREME_HOME/var/log/$STREAMDESC.log 2>&1 & echo $! > $EXAREME_HOME/var/run/$STREAMDESC.pid
-            sleep 1
-            STREAMDESC="stream-worker"
-            EXAREME_STREAM_TOOL="$EXAREME_HOME/lib/stream-tools/worker --port 8010 --enginePort 8001 --engineip $EXAREME_MASTER_IP"
         else
             DESC="exareme-worker"
-            STREAMDESC="stream-worker"
             EXAREME_ADMIN_CLASS=$EXAREME_ADMIN_WORKER_CLASS
-            EXAREME_ADMIN_CLASS_ARGS="$EXAREME_MASTER_IP"
-            EXAREME_STREAM_TOOL="$EXAREME_HOME/lib/stream-tools/worker --port 8010 --enginePort 8001 --engineip $EXAREME_MASTER_IP"
+            EXAREME_ADMIN_CLASS_ARGS="$EXAREME_MASTER"
         fi
 
+        if [[ ! -z "$MASTER_FLAG" ]]; then
+            DESC="exareme-master"
+            EXAREME_ADMIN_CLASS=$EXAREME_ADMIN_MASTER_CLASS
+            EXAREME_ADMIN_CLASS_ARGS=""
+        fi
+
+
         # execute
-        $EXAREME_JAVA -cp $EXAREME_ADMIN_CLASS_PATH $EXAREME_ADMIN_OPTS $EXAREME_ADMIN_CLASS\
-            $EXAREME_ADMIN_CLASS_ARGS > $EXAREME_HOME/var/log/$DESC.log 2>&1 & echo $! > $EXAREME_HOME/var/run/$DESC.pid
-        $EXAREME_STREAM_TOOL > $EXAREME_HOME/var/log/$STREAMDESC.log 2>&1 & echo $! > $EXAREME_HOME/var/run/$STREAMDESC.pid
+        echo "BB"
+        echo $EXAREME_ADMIN_CLASS_PATH
+        echo $EXAREME_JAVA
+        echo $EXAREME_ADMIN_CLASS
+        echo $EXAREME_ADMIN_CLASS_ARGS
+        echo "CC"
+        mkdir -p /tmp/exareme/var/log /tmp/exareme/var/run
+        $EXAREME_JAVA -cp $EXAREME_ADMIN_CLASS_PATH \
+          $EXAREME_ADMIN_OPTS $EXAREME_ADMIN_CLASS  \
+          $EXAREME_ADMIN_CLASS_ARGS > /tmp/exareme/var/log/$DESC.log 2>&1 & echo $! > /tmp/exareme/var/run/$DESC.pid    #-cp requires class path specification
         echo "$DESC started."
     }
 
     function stop_exareme(){
-        if [ "$(ls -A $EXAREME_HOME/var/run/*.pid)" ]; then
-            kill -9 $( cat $EXAREME_HOME/var/run/*.pid)
-            rm $EXAREME_HOME/var/run/*.pid
+        if [ -f /tmp/exareme/var/run/*.pid ]; then
+            kill -9 $( cat /tmp/exareme/var/run/*.pid)
+            rm /tmp/exareme/var/run/*.pid
             echo "Stopped."
         else
             echo "Already stopped, no action taken."
@@ -171,16 +230,16 @@ if [[ "true" == $EXAREME_ADMIN_LOCAL ]]; then   # run locally
     }
 
     function status_exareme(){
-        if [ -e $EXAREME_HOME/var/run/*.pid ]; then
-            ps -f --pid $(cat $EXAREME_HOME/var/run/*.pid) | sed 1d
+        if [ -e /tmp/exareme/var/run/*.pid ]; then
+            ps -f --pid $(cat /tmp/exareme/var/run/*.pid) | sed 1d
         else
             echo "Stopped."
         fi
     }
 
     function install_exareme(){     # only workers
-        for EXAREME_NODE in $(cat $EXAREME_HOME/etc/exareme/workers); do 
-            rsync -aqvzhe ssh --delete  --exclude="var/*" $EXAREME_HOME/ $EXAREME_USER@$EXAREME_NODE:$EXAREME_HOME/ &
+        for EXAREME_NODE in $( awk '{print $1}' $EXAREME_HOME/etc/exareme/workers); do # cat $EXAREME_HOME/etc/exareme/workers
+            rsync -aqvzhe ssh --delete  --exclude="var/*" --exclude="../mip-algorithms/properties.json" --exclude="etc/exareme/name" $EXAREME_HOME/ $EXAREME_USER@$EXAREME_NODE:$EXAREME_HOME/ &
         done
 
         # Wait for all parallel jobs to finish
@@ -190,8 +249,8 @@ if [[ "true" == $EXAREME_ADMIN_LOCAL ]]; then   # run locally
     }
 
     function update_exareme(){      # only workers
-        for EXAREME_NODE in $(cat $EXAREME_HOME/etc/exareme/workers); do
-            rsync -avqzhe ssh --delete  --exclude="var/*" $EXAREME_HOME/ $EXAREME_USER@$EXAREME_NODE:$EXAREME_HOME/ &
+        for EXAREME_NODE in $(awk '{print $1}' $EXAREME_HOME/etc/exareme/workers); do
+            rsync -avqzhe ssh --delete  --exclude="var/*" --exclude="../mip-algorithms/properties.json"  --exclude="etc/exareme/name" $EXAREME_HOME/ $EXAREME_USER@$EXAREME_NODE:$EXAREME_HOME/ &
         done
 
         # Wait for all parallel jobs to finish
@@ -201,7 +260,7 @@ if [[ "true" == $EXAREME_ADMIN_LOCAL ]]; then   # run locally
     }
 
     function uninstall_exareme(){   # only workers
-        for EXAREME_NODE in $(cat $EXAREME_HOME/etc/exareme/workers); do
+        for EXAREME_NODE in $(awk '{print $1}' $EXAREME_HOME/etc/exareme/workers); do
             ssh -n $EXAREME_USER@$EXAREME_NODE """rm -rf $EXAREME_HOME""" &
         done
 
@@ -222,19 +281,19 @@ else
 
 #    ssh -n $EXAREME_USER@$EXAREME_MASTER_IP """$CMD_RUN"""
     $CMD_RUN
-    sleep 1
-
+    sleep 3
+    
     if [[ "true" != $EXAREME_ADMIN_SYNC ]]; then
-        for EXAREME_NODE in $(cat $EXAREME_HOME/etc/exareme/workers); do
-            ssh -n $EXAREME_USER@$EXAREME_NODE """$CMD_RUN""" &
+        for EXAREME_NODE in $(awk '{print $1}' $EXAREME_HOME/etc/exareme/workers); do
+            ssh -n $EXAREME_USER@$EXAREME_NODE """mkdir -p /tmp/demo/db;source /etc/profile;$CMD_RUN""" &
         done
         # Wait for all parallel jobs to finish
         for job in `jobs -p`; do
             wait $job
         done
     else
-        for EXAREME_NODE in $(cat $EXAREME_HOME/etc/exareme/workers); do
-            ssh -n $EXAREME_USER@$EXAREME_NODE """$CMD_RUN"""
+        for EXAREME_NODE in $(awk '{print $1}' $EXAREME_HOME/etc/exareme/workers); do
+            ssh -n $EXAREME_USER@$EXAREME_NODE """mkdir -p /tmp/demo/db;source /etc/profile;$CMD_RUN"""
         done
     fi
 fi
