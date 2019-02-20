@@ -1,4 +1,4 @@
-# Exareme   [![Build Status](https://travis-ci.org/madgik/exareme.svg?branch=mip)](https://travis-ci.org/madgik/exareme)
+# Exareme   [![Build Status](https://travis-ci.org/madgik/exareme.svg?branch=dev_standalone)](https://travis-ci.org/madgik/exareme)
 
 
 ##  Building Exareme
@@ -6,18 +6,47 @@
 * requires : 
     -  git, jdk 1.7, maven, consul
     
-* open new terminal and execute    
+* Open new terminal and execute
     ``` 
         git clone https://github.com/madgik/exareme.git -b dev_standalone exareme-standalone
         cd exareme-standalone
-        mvn clean install -DskipTests -Pmultiarch 
-	mv exareme-distribution/target/exareme/lib/exareme/*.jar runExareme/lib/exareme/
     ```
-* Start Consul Key-value store (https://www.consul.io/) ONLY! in master node
-```
-consul agent -dev -client 0.0.0.0 -bind=$( wget http://ipinfo.io/ip -qO -)
-```
 
+* Configuration under ~/exareme-standalone/exareme-utils/src/main/resources/gateway.properties where $pwd = your path to exareme-standalone
+    - specify
+		demo.repository.path=$pwd/exareme-standalone/mip-algorithms/
+		static.path=$pwd/exareme-standalone/runExareme/static/
+		workers.path=$pwd/exareme/etc/exareme/workers
+		home.path=$pwd
+
+* Keep in mind, that every time tou make a change under folder ```exareme-standalone``` you have to make
+   ```
+       mvn clean install (inside exareme-standalone folder)
+       mv exareme-distribution/target/exareme/lib/exareme/*.jar runExareme/lib/exareme/
+   ```
+
+* Start Consul Key-value store (https://www.consul.io/) ONLY! in master node
+    ```
+        consul agent -dev -client 0.0.0.0 -bind=$( wget http://ipinfo.io/ip -qO -)
+    ```
+
+* Start Exareme master node
+    ```
+        cd runExareme
+        ./bootstrap.sh
+    ```
+
+* Check Consul key-value store 
+    ```
+        yourIP:8500
+    ```
+
+* For stopping Exareme you can simply go under runExareme folder and
+    ```
+        ./bin/exareme-admin.sh --stop
+    ```
+
+#--------------------------------------------
 ## Single node installation
 
 * Package dependencies :
@@ -37,13 +66,6 @@ consul agent -dev -client 0.0.0.0 -bind=$( wget http://ipinfo.io/ip -qO -)
 
     - edit properties.json	
         + specify rawdb address, port, credentials, query -if necessary for accessing a db-
-* Configuration under ~/exareme-standalone/runExareme/etc/exareme/gateway.properties
-
-    - specify
-		demo.repository.path=$pwd/exareme-standalone/mip-algorithms/
-		static.path=$pwd/exareme-standalone/runExareme/static/
-		workers.path=$pwd/exareme/etc/exareme/workers
-		home.path=$pwd
       
 * Extract Exareme tarball
  

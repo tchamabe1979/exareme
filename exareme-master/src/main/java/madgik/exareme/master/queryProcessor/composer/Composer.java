@@ -52,7 +52,7 @@ public class Composer {
 
     static {
         try {
-            repoPath = AdpProperties.getGatewayProperties().getString("demo.repository.path");
+            repoPath = AdpProperties.getGatewayProperties().getString("algorithm.repository.path");
             log.debug(repoPath);
             algorithms = AlgorithmsProperties.createAlgorithms(repoPath);
         } catch (IOException e) {

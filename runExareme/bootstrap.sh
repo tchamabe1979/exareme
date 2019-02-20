@@ -36,7 +36,7 @@ if [ "$MASTER_FLAG" != "master" ]; then #this is a worker
     MASTER_NAME=$(curl -s $CONSULURL/v1/kv/$EXAREME_MASTER_PATH/?keys | jq -r '.[]' | sed "s/$EXAREME_MASTER_PATH\///g")
     SH=$(cat  $EXAREME_HOME/etc/exareme/master)
     SPACE=' '
-    $EXAREME_HOME/start-worker.sh
+    $EXAREME_HOME/bin/start-worker.sh
     if [ "$(curl -o -i -s -w "%{http_code}\n" ${CONSULURL}/v1/kv/${EXAREME_ACTIVE_WORKERS_PATH}/{$NODE_NAME}?keys)" = "200" ]; then
         ssh -oStrictHostKeyChecking=no $SH """sed -i  "/`echo $NODE_NAME`/d"  $EXAREME_HOME/etc/exareme/workers; curl localhost:9091/remove/worker?IP=$IP"""       #sed -i == delete line from etc/exareme/worker
         curl -X DELETE $CONSULURL/v1/kv/$EXAREME_ACTIVE_WORKERS_PATH/$NODE_NAME
@@ -73,7 +73,6 @@ else
     echo -n $NODE_NAME >  $EXAREME_HOME/etc/exareme/name
     #todo what happens with datasets
     #. /root/exareme/set-local-datasets.sh
-    echo $IP
     echo $IP > $EXAREME_HOME/etc/exareme/master
     #Master re-booted
     if [ "$(curl -o -i -s -w "%{http_code}\n" ${CONSULURL}/v1/kv/${EXAREME_MASTER_PATH}/?keys)" = "200" ]; then

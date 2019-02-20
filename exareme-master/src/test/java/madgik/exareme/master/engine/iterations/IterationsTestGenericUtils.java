@@ -80,7 +80,7 @@ public class IterationsTestGenericUtils {
         final MutableProperties gatewayProperties =
                 (MutableProperties) AdpProperties.getGatewayProperties();
         File algorithmsDevDirectory = new File(ALGORITHMS_DEV_DIRECTORY);
-        gatewayProperties.setStringProperty("demo.repository.path",
+        gatewayProperties.setStringProperty("algorithm.repository.path",
                 algorithmsDevDirectory.getCanonicalPath() + "/");
 
         // Initialization of Composer must occur AFTER our overwriting of the demo repo. path prop.

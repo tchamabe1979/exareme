@@ -311,8 +311,8 @@ public class AlgorithmsProperties {
 
         public String toUDF(String query){
             StringBuilder builder = new StringBuilder();
-            String homePath = AdpProperties.getGatewayProperties().getString("home.path");
-            builder.append("(select __rid ,__colname ,__val from (file header:t file:"+homePath+"mip-algorithms/input_tbl.csv))");
+            String algopath = AdpProperties.getGatewayProperties().getString("algorithm.repository.path");
+            builder.append("(select __rid ,__colname ,__val from (file header:t file:"+algopath+"input_tbl.csv))");
            /* builder.append(name);
             builder.append(" ");
             builder.append("))");*/
@@ -321,8 +321,8 @@ public class AlgorithmsProperties {
         // TODO push filters efficiently
         public String toUDF(List<String> variables){
             StringBuilder builder = new StringBuilder();
-            String homePath = AdpProperties.getGatewayProperties().getString("home.path");
-            builder.append("(select __rid ,__colname ,__val from (file header:t file:"+homePath+"mip-algorithms/input_tbl.csv))");
+            String algopath = AdpProperties.getGatewayProperties().getString("algorithm.repository.path");
+            builder.append("(select __rid ,__colname ,__val from (file header:t file:"+algopath+"input_tbl.csv))");
             /*builder.append(name);
             builder.append(" ");
 
