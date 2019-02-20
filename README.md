@@ -13,12 +13,13 @@
     ```
 
 * Configuration under ~/exareme-standalone/exareme-utils/src/main/resources/gateway.properties where $pwd = your path to exareme-standalone
+    ````
     - specify
 		demo.repository.path=$pwd/exareme-standalone/mip-algorithms/
 		static.path=$pwd/exareme-standalone/runExareme/static/
 		workers.path=$pwd/exareme/etc/exareme/workers
 		home.path=$pwd
-
+    ```
 * Keep in mind, that every time tou make a change under folder ```exareme-standalone``` you have to make
    ```
        mvn clean install (inside exareme-standalone folder)
