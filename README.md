@@ -49,7 +49,7 @@ If you want to connect Exareme with a db check section ```Manage DB```
     ```
   Note that ```bootstrap.sh``` can have one of two options ```master``` or ```worker```
 
-* Check Consul key-value store. Command line for {yourIP}: wget http://ipinfo.io/ip -qO -
+* Check Consul key-value store. Command line for {yourIP}: ```wget http://ipinfo.io/ip -qO -```
     ```
         {yourIP}:8500
     ```
