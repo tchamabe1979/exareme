@@ -2,17 +2,18 @@
   "algorithms"  : [],
   "endpoints"   : [],
   "local_engine_default" : {
-    "name"        : "rawdb",
+    "name"        : "MadisUDF_for_accessing_db",
     "parameters"  : [
-      { "name" : "username", "desc" : "", "value":"federation" },
-      { "name" : "password", "desc" : "", "value":"federation" },
-      { "name" : "host"    , "desc" : "", "value":"0.0.0.0"},
-      { "name" : "port" , "desc":"", "value":"5555"},
-      { "name" : "api", "desc":"", "value":"query-start"},
-      { "name" : "resultsPerPage", "desc":"", "value":"all"},
-      { "name" : "datakey", "desc":"", "value":"all"}
+        "<db_username>",
+        "<db_password>",
+        "<db_host>",
+        "<db_port>",
+        "<db_endpoint>",
+        "<db_resultsperpage>",
+        "<db_datakey>",
+        "<db_name>"
     ],
-    "query" : "select distinct patient_id as __rid, variable_name as __colname, value as __val from exam_value"
+    "query" : ""
   }
 }
 
