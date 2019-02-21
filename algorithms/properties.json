@@ -2,16 +2,16 @@
   "algorithms"  : [],
   "endpoints"   : [],
   "local_engine_default" : {
-    "name"        : "MadisUDF_for_accessing_db",
+    "name"        : "madisUDFaccessDB",
     "parameters"  : [
-        "<db_username>",
-        "<db_password>",
-        "<db_host>",
-        "<db_port>",
-        "<db_endpoint>",
-        "<db_resultsperpage>",
-        "<db_datakey>",
-        "<db_name>"
+      { "name" : "username", "desc" : "username for db", "value":"" },
+      { "name" : "password", "desc" : "password for db", "value":"" },
+      { "name" : "host"    , "desc" : "host for db", "value":""},
+      { "name" : "port" , "desc":"port for db", "value":""},
+      { "name" : "api", "desc":"", "value":"query-start"},
+      { "name" : "resultsPerPage", "desc":"", "value":"all"},
+      { "name" : "datakey", "desc":"", "value":"all"},
+      { "name" : "db", "desc":"which db", "value":""}
     ],
     "query" : ""
   }
