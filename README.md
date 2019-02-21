@@ -4,8 +4,17 @@
 ##  Building Exareme
 
 * requires : 
-    -  git, jdk 1.7, maven, consul
-    
+   ```
+        -  git, jdk 1.7, maven, consul
+   ```
+
+* Package dependencies :
+    ```
+        - jre 1.7, Python 2.7, requests
+        -[APSW 3.11] (https://rogerbinns.github.io/apsw/download.html), NumPy, SciPy, scikit-learn, titus
+        (can be installed through pip, also listed in requirements.txt)
+    ```
+
 * Open new terminal and execute
     ``` 
         git clone https://github.com/madgik/exareme.git -b dev_standalone exareme-standalone
@@ -13,39 +22,44 @@
     ```
 
 * Configuration under ~/exareme-standalone/exareme-utils/src/main/resources/gateway.properties where $pwd = your path to exareme-standalone
-    ````
-    - specify
-		demo.repository.path=$pwd/exareme-standalone/mip-algorithms/
-		static.path=$pwd/exareme-standalone/runExareme/static/
-		workers.path=$pwd/exareme/etc/exareme/workers
-		home.path=$pwd
     ```
+    - specify
+		demo.repository.path= $pwd/exareme-standalone/mip-algorithms/
+		static.path= $pwd/exareme-standalone/runExareme/static/
+		workers.path= $pwd/exareme/etc/exareme/workers
+		home.path= $pwd
+    ```
+
 * Keep in mind, that every time tou make a change under folder ```exareme-standalone``` you have to make
    ```
        mvn clean install (inside exareme-standalone folder)
        mv exareme-distribution/target/exareme/lib/exareme/*.jar runExareme/lib/exareme/
    ```
 
-* Start Consul Key-value store (https://www.consul.io/) ONLY! in master node
+* Start Consul Key-value store (https://www.consul.io/) ONLY! in Master node
     ```
         consul agent -dev -client 0.0.0.0 -bind=$( wget http://ipinfo.io/ip -qO -)
     ```
 
-* Start Exareme master node
+* Start Exareme Master node. At this point Exareme will automatically read data from .csv file.
+If you want to connect Exareme with a db check section ```Manage DB```
     ```
         cd runExareme
-        ./bootstrap.sh
+        ./bootstrap.sh --master
+    ```
+  Note that ```bootstrap.sh``` can have one of two options ```master``` or ```worker```
+
+* Check Consul key-value store. Command line for {yourIP}: wget http://ipinfo.io/ip -qO -
+    ```
+        {yourIP}:8500
     ```
 
-* Check Consul key-value store 
-    ```
-        yourIP:8500
-    ```
-
-* For stopping Exareme you can simply go under runExareme folder and
+* For stopping Exareme you can simply go under ```runExareme``` folder and
     ```
         ./bin/exareme-admin.sh --stop
     ```
+* Manage DB
+#todo
 
 #--------------------------------------------
 ## Single node installation
@@ -53,7 +67,7 @@
 * Package dependencies :
 
     - jre 1.7, Python 2.7, git, [APSW 3.11] (https://rogerbinns.github.io/apsw/download.html)
-    - requests, NumPy, SciPy, scikit-learn, titus (can be installed through pip, also listed in requirements.txt) 
+    - requests, NumPy, SciPy, scikit-learn, titus (can be installed through pip, also listed in requirements.txt)
 
 ##TODO, for now algorithms will be inside the fonder
 * Download mip-algorithms inside exareme-standalone folder
