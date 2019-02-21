@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 
-MASTER_FLAG="master"
+function usage(){
+    cat << EOF
+    OPTIONS [OPTIONS_PARAMETERS]
+
+        --master                        - start master
+        --worker                        - start worker
+EOF
+}
+
 IP=$(wget http://ipinfo.io/ip -qO -)
 CONSULPORT=":8500"
 CONSULURL=$IP$CONSULPORT
@@ -8,6 +16,34 @@ EXAREME_HOME=$(pwd)
 NODE_NAME=$(hostname)
 EXAREME_ACTIVE_WORKERS_PATH="active_workers"
 EXAREME_MASTER_PATH="master"
+
+
+TEMP=`getopt --options h \
+             --long master,worker,help \
+             -n $(basename "$0") -- "$@"`
+
+eval set -- "$TEMP"
+
+while true; do
+   case "$1" in
+        --master)
+            FLAG="master"
+            break
+            ;;
+        --worker)
+            FLAG="worker"
+            break
+            ;;
+        -h|--help)
+            usage
+            exit 0;;
+        *)
+            echo "Please provide one of the OPTIONS. Use -h|--help to check available options."
+            exit 1
+            ;;
+    esac
+    shift;
+done
 
 mkdir -p  /tmp/demo/db/
 if [ -z ${CONSULURL} ]; then echo "CONSULURL is unset"; exit; fi
@@ -19,19 +55,16 @@ while [ "$(curl -s ${CONSULURL}/v1/health/state/passing | jq -r '.[].Status')" !
     sleep 2
 done
 
-#todo what happens with datasets
-#echo '*/15  *  *  *  *    /root/exareme/set-local-datasets.sh' >> /etc/crontabs/root
-#crond
+#todo cron
+. $(pwd)/bin/set-local-datasets.sh
 
-if [ "$MASTER_FLAG" != "master" ]; then #this is a worker
+if [ "$FLAG" != "master" ]; then #this is a worker
     DESC="exareme-worker"
     echo -n $NODE_NAME > $EXAREME_HOME/etc/exareme/name
     while [ "$(curl -o -i -s -w "%{http_code}\n" ${CONSULURL}/v1/kv/${EXAREME_MASTER_PATH}/?keys)" != "200" ]; do
         echo "Waiting for master node to be initialized...."
         sleep 2
     done
-    #todo what happens with datasets
-    #. /root/exareme/set-local-datasets.sh
     curl -s $CONSULURL/v1/kv/$EXAREME_MASTER_PATH/$(curl -s $CONSULURL/v1/kv/$EXAREME_MASTER_PATH/?keys | jq -r '.[]' | sed "s/$EXAREME_MASTER_PATH\///g")?raw > $EXAREME_HOME/etc/exareme/master
     MASTER_NAME=$(curl -s $CONSULURL/v1/kv/$EXAREME_MASTER_PATH/?keys | jq -r '.[]' | sed "s/$EXAREME_MASTER_PATH\///g")
     SH=$(cat  $EXAREME_HOME/etc/exareme/master)
@@ -71,8 +104,6 @@ if [ "$MASTER_FLAG" != "master" ]; then #this is a worker
 else
     DESC="exareme-master"
     echo -n $NODE_NAME >  $EXAREME_HOME/etc/exareme/name
-    #todo what happens with datasets
-    #. /root/exareme/set-local-datasets.sh
     echo $IP > $EXAREME_HOME/etc/exareme/master
     #Master re-booted
     if [ "$(curl -o -i -s -w "%{http_code}\n" ${CONSULURL}/v1/kv/${EXAREME_MASTER_PATH}/?keys)" = "200" ]; then
