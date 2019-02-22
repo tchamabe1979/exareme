@@ -5,7 +5,7 @@
 
 * requires : 
    ```
-        -  git, jdk 1.7, maven, consul
+        -  git, jdk 1.7, maven, consul, jq version 1.5
    ```
 
 * Package dependencies :
@@ -36,10 +36,12 @@
        mv exareme-distribution/target/exareme/lib/exareme/*.jar runExareme/lib/exareme/
    ```
 
-* Start Consul Key-value store (https://www.consul.io/) ONLY! in Master node
+* Start Consul Key-value store (https://www.consul.io/) in Master node
     ```
         consul agent -dev -client 0.0.0.0 -bind=$( wget http://ipinfo.io/ip -qO -)
     ```
+    Note that you only need to launch Consul key-value store once. You could launch it under a different machine and not necessarily in Master node.
+    If this is the case, remember to change the parameter ```-bind=$( wget http://ipinfo.io/ip -qO -)``` with machine's IP.
 
 * Start Exareme Master node. At this point Exareme will automatically read data from .csv file.
 If you want to connect Exareme with a db check section ```Manage DB```
@@ -49,15 +51,20 @@ If you want to connect Exareme with a db check section ```Manage DB```
     ```
   Note that ```bootstrap.sh``` can have one of two options ```master``` or ```worker```
 
-* Check Consul key-value store. Command line for {yourIP}: ```wget http://ipinfo.io/ip -qO -```
+* Check Consul key-value store.
     ```
-        {yourIP}:8500
+        CONSULURL:8500
     ```
 
 * For stopping Exareme you can simply go under ```runExareme``` folder and
     ```
         ./bin/exareme-admin.sh --stop
     ```
+## Cluster installation
+
+* Set up ssh password-less access from master node to all nodes and vice versa.
+ #todo
+
 * Manage DB
 #todo
 
