@@ -1,5 +1,8 @@
 #!/bin/bash
 
+NODE_NAME=$(hostname)
+CONSULURL="83.212.171.200:8500"
+
 if [ -z ${NODE_NAME} ]; then echo "NODE_NAME is unset";exit;  fi
 if [ -z ${CONSULURL} ]; then echo "CONSULURL is unset"; exit; fi
 
