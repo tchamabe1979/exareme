@@ -68,7 +68,7 @@ def logregr_global_final(global_state, global_in):
                             'Coefficient': coeff[i],
                             'std.err.'   : stderr[i],
                             'z score'    : z_scores[i],
-                            'p value'    : p_values[i],
+                            'p value'    : p_values[i] if p_values[i] >= 0.001 else '< 0.001',
                             'Lower C.I.' : lci[i],
                             'Upper C.I.' : rci[i]
                         }

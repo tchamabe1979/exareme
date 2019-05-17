@@ -17,6 +17,11 @@ from algorithm_utils import StateData
 from log_regr_lib import LogRegrInit_Loc2Glob_TD
 
 
+# TODO Missing values (check if works)
+# TODO Summary
+# TODO Formula Parser
+# TODO Dummy coding
+
 def logregr_local_init(local_in):
     # Unpack local input
     X, Y, schema_X, schema_Y = local_in
@@ -70,11 +75,17 @@ def main():
     except ValueError:
         print('Values in X and Y must be numbers')
 
-    Y = [data[i][idx_Y] for i in range(len(data))]
-    assert len(set(Y)) == 2, "Y vector should only contain 2 distinct values"
+    Y = np.array([data[i][idx_Y] for i in range(len(data))], dtype=object)
+    assert len(set(Y) - {None, ''}) == 2, "Y vector should only contain 2 distinct values, or missing values of type " \
+                                          "None or ''"
+    # Remove rows with missing values
+    mask_Y = [y is None or y is '' for y in Y]
+    mask_X = np.isnan(X).any(axis=1)
+    mask = np.logical_or(mask_X, mask_Y)
+    X, Y = X[~mask], Y[~mask]
 
-    local_in = X, Y, schema_X, schema_Y
     # Run algorithm local step
+    local_in = X, Y, schema_X, schema_Y
     local_state, local_out = logregr_local_init(local_in=local_in)
     # Save local state
     if not os.path.exists(os.path.dirname(fname_cur_state)):
