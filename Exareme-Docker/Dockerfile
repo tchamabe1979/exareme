@@ -1,4 +1,4 @@
-FROM alpine:3.6
+FROM alpine:3.8
 MAINTAINER Sofia Karvouni <karvoun@di.uoa.gr>
 
 # Here we install GNU libc (aka glibc) and set C.UTF-8 locale as default.
