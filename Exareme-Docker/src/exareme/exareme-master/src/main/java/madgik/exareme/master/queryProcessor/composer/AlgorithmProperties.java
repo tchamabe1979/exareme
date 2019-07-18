@@ -1,6 +1,7 @@
 package madgik.exareme.master.queryProcessor.composer;
 
 import madgik.exareme.master.queryProcessor.composer.Exceptions.AlgorithmException;
+import madgik.exareme.master.queryProcessor.composer.Exceptions.ComposerException;
 import madgik.exareme.master.queryProcessor.composer.Exceptions.VariablesMetadataException;
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
@@ -23,7 +24,7 @@ public class AlgorithmProperties {
         pipeline,                   // exec local on each endpoint
         local_global,               // exec global over the union of local results
         multiple_local_global,      // exec sequentially multiple local_global
-        iterative,                   // exec iterative algorithm
+        iterative,                  // exec iterative algorithm
         python_local,                   // exec python based local algorithm
         python_local_global,            // exec python based local global algorithm
         python_multiple_local_global,    // exec python based multiple local global algorithm
@@ -95,6 +96,32 @@ public class AlgorithmProperties {
     }
 
     /**
+     * Changes the value of an algorithm parameter
+     * to the given value
+     *
+     * @param parameterName     the name of a parameter
+     * @param newParameterValue the new value of the parameter
+     * @return true if it was changed, false otherwise
+     */
+    public void setParameterValue(String parameterName, String newParameterValue) throws ComposerException {
+        String allowedDynamicParameters = ComposerConstants.dbIdentifierKey;
+
+        // Not all parameters are allowed to be changed.
+        // This is a safety check
+        if (!allowedDynamicParameters.contains(parameterName)) {
+            throw new ComposerException("The value of the parameter " + parameterName + " should not be set manually.");
+        }
+
+        for (ParameterProperties parameter : parameters) {
+            if (parameter.getName().equals(parameterName)) {
+                parameter.setValue(newParameterValue);
+                return;
+            }
+        }
+        throw new ComposerException("The parameter " + parameterName + " does not exist.");
+    }
+
+    /**
      * Gets the AlgorithmProperties from the cached Algorithms.
      * Merges the default algorithm properties with the parameters given in the HashMap.
      *
@@ -107,15 +134,20 @@ public class AlgorithmProperties {
 
         for (ParameterProperties parameterProperties : this.getParameters()) {
             String value = inputContent.get(parameterProperties.getName());
-            if (value != null) {
+            if (value != null && !value.equals("")) {
                 validateAlgorithmParameterValueType(value, parameterProperties);
                 validateAlgorithmParameterType(value, parameterProperties);
-            } else {            // if value is null
+            } else {            // if value not given or it is blank
                 if (parameterProperties.getValueNotBlank()) {
                     throw new AlgorithmException(
                             "The value of the parameter '" + parameterProperties.getName() + "' should not be blank.");
                 }
-                value = "";
+
+                if (parameterProperties.getDefaultValue() != null) {
+                    value = parameterProperties.getDefaultValue();
+                } else {
+                    value = "";
+                }
             }
             parameterProperties.setValue(value);
         }
