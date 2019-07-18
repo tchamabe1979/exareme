@@ -14,8 +14,9 @@ def main():
             delimiter=',', names=True, usecols=range(18, 81)
     )
     num_vars = len(adni.dtype.names)
-    sp_results = []
-    for _ in range(30):
+    results = []
+    count = 0
+    while count < 100:
         ii = np.random.randint(num_vars)
         while True:
             jj = np.random.randint(num_vars)
@@ -30,6 +31,7 @@ def main():
         y = y[~mask]
         rr = list(pearsonr(x, y))
         if not np.isnan(rr[0]) and not np.isnan(rr[1]):
+            count += 1
             if rr[1] < P_VALUE_CUTOFF:
                 rr[1] = P_VALUE_CUTOFF_STR
             print(x_name + ' ~ ' + y_name, rr)
@@ -52,16 +54,16 @@ def main():
                 },
             ]
             output_data = {
-                "pearson correl": rr[0],
-                "p value": rr[1]
+                "Pearson correlation coefficient": rr[0],
+                "p-value": rr[1]
             }
-            sp_results.append({
+            results.append({
                 "input": input_data,
                 "output": output_data
             })
-    sp_results = {"sp_results": sp_results}
-    with open('test.json', 'w') as f:
-        json.dump(sp_results, f)
+    results = {"results": results}
+    with open('pearson_runs.json', 'w') as f:
+        json.dump(results, f)
 
 
 if __name__ == '__main__':
