@@ -22,7 +22,7 @@
 ------------------ End input for testing
 ------------------------------------------------------------------------------
 
-requirevars 'defaultDB' 'input_local_DB' 'db_query' 'x' 'y';
+requirevars 'defaultDB' 'input_local_DB' 'db_query' 'x' 'y' 'ylevels';
 --x: a vector of strings naming the variables of interest in data
 --testValue: a number specifying the value of the null hypothesis
 
@@ -48,9 +48,15 @@ drop table if exists defaultDB.localstatistics;
 create table defaultDB.localstatistics (colname text, groupval text, S1 real, S2 real, N int);
 %{localstats};
 
-drop table if exists defaultDB.privacychecking; -- For error handling
-create table defaultDB.privacychecking as
+-- drop table if exists defaultDB.privacychecking; -- For error handling
+-- create table defaultDB.privacychecking as
+--ErrorChecking
 select privacychecking(N) from defaultDB.localstatistics;
+select variableshouldbebinary_inputerrorchecking('%{y}', val)
+from (select count(distinct %{y}) as val from defaultDB.localinputtblflat);
+select variabledistinctvalues_inputerrorchecking('%{y}', val, '%{ylevels}')
+from (select group_concat(distinct %{y}) as val from defaultDB.localinputtblflat);
+
 
 select * from defaultDB.localstatistics;
 
