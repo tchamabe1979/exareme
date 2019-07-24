@@ -19,10 +19,21 @@ var 'resultschema' from select outputschema from defaultDB.globalttestresult lim
 var 'typesofresults' from select create_complex_query("","real" , "," , "" , '%{resultschema}');
 var 'typesofresults2' from select strreplace(mystring) from (select 'text,real,int,'||'%{typesofresults}' as mystring);
 
-drop table if exists defaultDB.ttestresultvisual;
-create table defaultDB.ttestresultvisual as
-setschema 'result'
-select * from (totabulardataresourceformat title:ONE_SAMPLE_T_TEST_TABLE types:%{typesofresults2}
-               select colname,statistics,df,%{resultschema} from defaultDB.globalttestresult);
 
-select * from defaultDB.ttestresultvisual;
+var 'jsonResult' from select '{ "type": "application/json", "data": ' || val ||'}' from
+(select tabletojson( colname, statistics, df,%{resultschema}, "colname,statistics,df,%{resultschema}",0) as val
+ from defaultDB.globalttestresult);
+
+var 'tableResult' from select * from (totabulardataresourceformat title:INDEPENDENT_TEST_TABLE types:%{typesofresults2}
+              select colname,statistics,df,%{resultschema} from defaultDB.globalttestresult);
+
+select '{"result": [' || '%{jsonResult}' || ',' || '%{tableResult}' || ']}';
+
+--
+-- drop table if exists defaultDB.ttestresultvisual;
+-- create table defaultDB.ttestresultvisual as
+-- setschema 'result'
+-- select * from (totabulardataresourceformat title:ONE_SAMPLE_T_TEST_TABLE types:%{typesofresults2}
+--                select colname,statistics,df,%{resultschema} from defaultDB.globalttestresult);
+--
+-- select * from defaultDB.ttestresultvisual;

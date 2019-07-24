@@ -1,14 +1,14 @@
 ------------------Input for testing
 ------------------------------------------------------------------------------
 -- hidden var 'defaultDB' defaultDB_TTEST;
--- hidden var 'x' 'subjectage,righthippocampus,lefthippocampus';
+-- hidden var 'x' 'lefthippocampus';
 -- hidden var 'y' 'gender';
 -- var 'ylevels' 'M,F';
 -- hidden var 'outputformat' 'pfa';
 -- hidden var 'effectsize' 1;
 -- hidden var 'ci'  0;
 -- hidden var 'meandiff'  0;
--- hidden var 'hypothesis'  0;
+-- hidden var 'hypothesis' 'diferrent' ;
 -- var 'input_local_DB' 'datasets.db';
 --
 -- drop table if exists inputdata;
