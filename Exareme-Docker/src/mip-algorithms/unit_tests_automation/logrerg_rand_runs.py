@@ -85,10 +85,46 @@ def main():
     with open('logregr_runs.json', 'w') as f:
         json.dump(results, f)
 
-    with open('logregr_dataset.csv', 'w') as f:
+    data = np.insert(data, data.shape[1], values='generated_data_logregr', axis=1)
+    with open('generated_data_logregr.csv', 'w') as f:
         writer = csv.writer(f)
-        writer.writerow(list(all_names) + ['y' + str(i) for i in range(NUM_RUNS)])
+        writer.writerow([vname + '_logregr_auto' for vname in all_names] + ['y' + str(i) for i in range(NUM_RUNS)] +
+                        ['dataset'])
         writer.writerows(data)
+
+    # with open('/Users/zazon/Dropbox (Personal)/code/madgik/exareme/Exareme-Docker/src/mip-algorithms/unit_tests/datasets/CDEsMetadata.json') as cdes_file:
+    #     cdes = json.load(cdes_file)
+
+    cdes = []
+
+    for vname in all_names:
+        vname +=  '_logregr_auto'
+        cdes.append({
+            'code'         : vname,
+            'description'  : '',
+            'label'        : vname,
+            'methodology'  : 'AutomatedTesting_LogisticRegression',
+            'sql_type'     : 'real',
+            'isCategorical': False
+        })
+    for i in range(NUM_RUNS):
+        vname = 'y' + str(i)
+        cdes.append({
+            'code'         : vname,
+            'description'  : '',
+            'enumerations' : [{'code': 'a', 'label': 'a'},
+                              {'code': 'b', 'label': 'b'}],
+            'label'        : vname,
+            'methodology'  : 'AutomatedTesting_LogisticRegression',
+            'sql_type'     : 'text',
+            'type'         : 'binominal',
+            'isCategorical': True
+        })
+    with open('CDEsMetadata.json', 'w') as cdes_file:
+        json.dump(cdes, cdes_file)
+
+
+
 
 if __name__ == '__main__':
     main()

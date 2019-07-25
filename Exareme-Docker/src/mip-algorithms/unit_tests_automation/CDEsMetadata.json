@@ -1,0 +1,2358 @@
+[
+    {
+        "code": "leftaccumbensarea_logregr_auto",
+        "description": "",
+        "label": "leftaccumbensarea_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftacgganteriorcingulategyrus_logregr_auto",
+        "description": "",
+        "label": "leftacgganteriorcingulategyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftainsanteriorinsula_logregr_auto",
+        "description": "",
+        "label": "leftainsanteriorinsula_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftamygdala_logregr_auto",
+        "description": "",
+        "label": "leftamygdala_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftangangulargyrus_logregr_auto",
+        "description": "",
+        "label": "leftangangulargyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftaorganteriororbitalgyrus_logregr_auto",
+        "description": "",
+        "label": "leftaorganteriororbitalgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftcalccalcarinecortex_logregr_auto",
+        "description": "",
+        "label": "leftcalccalcarinecortex_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftcaudate_logregr_auto",
+        "description": "",
+        "label": "leftcaudate_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftcocentraloperculum_logregr_auto",
+        "description": "",
+        "label": "leftcocentraloperculum_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftcuncuneus_logregr_auto",
+        "description": "",
+        "label": "leftcuncuneus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftententorhinalarea_logregr_auto",
+        "description": "",
+        "label": "leftententorhinalarea_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftfofrontaloperculum_logregr_auto",
+        "description": "",
+        "label": "leftfofrontaloperculum_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftfrpfrontalpole_logregr_auto",
+        "description": "",
+        "label": "leftfrpfrontalpole_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftfugfusiformgyrus_logregr_auto",
+        "description": "",
+        "label": "leftfugfusiformgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftgregyrusrectus_logregr_auto",
+        "description": "",
+        "label": "leftgregyrusrectus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "lefthippocampus_logregr_auto",
+        "description": "",
+        "label": "lefthippocampus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftioginferioroccipitalgyrus_logregr_auto",
+        "description": "",
+        "label": "leftioginferioroccipitalgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftitginferiortemporalgyrus_logregr_auto",
+        "description": "",
+        "label": "leftitginferiortemporalgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftliglingualgyrus_logregr_auto",
+        "description": "",
+        "label": "leftliglingualgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftlorglateralorbitalgyrus_logregr_auto",
+        "description": "",
+        "label": "leftlorglateralorbitalgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftmcggmiddlecingulategyrus_logregr_auto",
+        "description": "",
+        "label": "leftmcggmiddlecingulategyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftmfcmedialfrontalcortex_logregr_auto",
+        "description": "",
+        "label": "leftmfcmedialfrontalcortex_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftmfgmiddlefrontalgyrus_logregr_auto",
+        "description": "",
+        "label": "leftmfgmiddlefrontalgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftmogmiddleoccipitalgyrus_logregr_auto",
+        "description": "",
+        "label": "leftmogmiddleoccipitalgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftmorgmedialorbitalgyrus_logregr_auto",
+        "description": "",
+        "label": "leftmorgmedialorbitalgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftmpogpostcentralgyrusmedialsegment_logregr_auto",
+        "description": "",
+        "label": "leftmpogpostcentralgyrusmedialsegment_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftmprgprecentralgyrusmedialsegment_logregr_auto",
+        "description": "",
+        "label": "leftmprgprecentralgyrusmedialsegment_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftmsfgsuperiorfrontalgyrusmedialsegment_logregr_auto",
+        "description": "",
+        "label": "leftmsfgsuperiorfrontalgyrusmedialsegment_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftmtgmiddletemporalgyrus_logregr_auto",
+        "description": "",
+        "label": "leftmtgmiddletemporalgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftocpoccipitalpole_logregr_auto",
+        "description": "",
+        "label": "leftocpoccipitalpole_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftofugoccipitalfusiformgyrus_logregr_auto",
+        "description": "",
+        "label": "leftofugoccipitalfusiformgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftopifgopercularpartoftheinferiorfrontalgyrus_logregr_auto",
+        "description": "",
+        "label": "leftopifgopercularpartoftheinferiorfrontalgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftorifgorbitalpartoftheinferiorfrontalgyrus_logregr_auto",
+        "description": "",
+        "label": "leftorifgorbitalpartoftheinferiorfrontalgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftpallidum_logregr_auto",
+        "description": "",
+        "label": "leftpallidum_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftpcggposteriorcingulategyrus_logregr_auto",
+        "description": "",
+        "label": "leftpcggposteriorcingulategyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftpcuprecuneus_logregr_auto",
+        "description": "",
+        "label": "leftpcuprecuneus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftphgparahippocampalgyrus_logregr_auto",
+        "description": "",
+        "label": "leftphgparahippocampalgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftpinsposteriorinsula_logregr_auto",
+        "description": "",
+        "label": "leftpinsposteriorinsula_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftpogpostcentralgyrus_logregr_auto",
+        "description": "",
+        "label": "leftpogpostcentralgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftpoparietaloperculum_logregr_auto",
+        "description": "",
+        "label": "leftpoparietaloperculum_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftporgposteriororbitalgyrus_logregr_auto",
+        "description": "",
+        "label": "leftporgposteriororbitalgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftppplanumpolare_logregr_auto",
+        "description": "",
+        "label": "leftppplanumpolare_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftprgprecentralgyrus_logregr_auto",
+        "description": "",
+        "label": "leftprgprecentralgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftptplanumtemporale_logregr_auto",
+        "description": "",
+        "label": "leftptplanumtemporale_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftputamen_logregr_auto",
+        "description": "",
+        "label": "leftputamen_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftscasubcallosalarea_logregr_auto",
+        "description": "",
+        "label": "leftscasubcallosalarea_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftsfgsuperiorfrontalgyrus_logregr_auto",
+        "description": "",
+        "label": "leftsfgsuperiorfrontalgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftsmcsupplementarymotorcortex_logregr_auto",
+        "description": "",
+        "label": "leftsmcsupplementarymotorcortex_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftsmgsupramarginalgyrus_logregr_auto",
+        "description": "",
+        "label": "leftsmgsupramarginalgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftsogsuperioroccipitalgyrus_logregr_auto",
+        "description": "",
+        "label": "leftsogsuperioroccipitalgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftsplsuperiorparietallobule_logregr_auto",
+        "description": "",
+        "label": "leftsplsuperiorparietallobule_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftstgsuperiortemporalgyrus_logregr_auto",
+        "description": "",
+        "label": "leftstgsuperiortemporalgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftthalamusproper_logregr_auto",
+        "description": "",
+        "label": "leftthalamusproper_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "lefttmptemporalpole_logregr_auto",
+        "description": "",
+        "label": "lefttmptemporalpole_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "lefttrifgtriangularpartoftheinferiorfrontalgyrus_logregr_auto",
+        "description": "",
+        "label": "lefttrifgtriangularpartoftheinferiorfrontalgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftttgtransversetemporalgyrus_logregr_auto",
+        "description": "",
+        "label": "leftttgtransversetemporalgyrus_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "leftventraldc_logregr_auto",
+        "description": "",
+        "label": "leftventraldc_logregr_auto",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "real",
+        "isCategorical": false
+    },
+    {
+        "code": "y0",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y0",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y1",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y1",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y2",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y2",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y3",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y3",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y4",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y4",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y5",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y5",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y6",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y6",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y7",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y7",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y8",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y8",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y9",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y9",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y10",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y10",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y11",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y11",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y12",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y12",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y13",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y13",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y14",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y14",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y15",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y15",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y16",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y16",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y17",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y17",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y18",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y18",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y19",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y19",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y20",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y20",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y21",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y21",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y22",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y22",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y23",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y23",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y24",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y24",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y25",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y25",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y26",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y26",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y27",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y27",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y28",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y28",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y29",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y29",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y30",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y30",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y31",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y31",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y32",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y32",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y33",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y33",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y34",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y34",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y35",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y35",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y36",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y36",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y37",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y37",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y38",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y38",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y39",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y39",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y40",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y40",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y41",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y41",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y42",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y42",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y43",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y43",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y44",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y44",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y45",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y45",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y46",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y46",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y47",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y47",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y48",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y48",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y49",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y49",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y50",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y50",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y51",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y51",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y52",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y52",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y53",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y53",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y54",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y54",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y55",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y55",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y56",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y56",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y57",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y57",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y58",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y58",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y59",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y59",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y60",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y60",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y61",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y61",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y62",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y62",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y63",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y63",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y64",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y64",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y65",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y65",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y66",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y66",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y67",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y67",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y68",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y68",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y69",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y69",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y70",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y70",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y71",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y71",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y72",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y72",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y73",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y73",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y74",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y74",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y75",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y75",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y76",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y76",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y77",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y77",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y78",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y78",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y79",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y79",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y80",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y80",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y81",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y81",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y82",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y82",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y83",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y83",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y84",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y84",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y85",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y85",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y86",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y86",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y87",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y87",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y88",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y88",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y89",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y89",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y90",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y90",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y91",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y91",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y92",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y92",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y93",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y93",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y94",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y94",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y95",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y95",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y96",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y96",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y97",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y97",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y98",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y98",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    },
+    {
+        "code": "y99",
+        "description": "",
+        "enumerations": [
+            {
+                "code": "a",
+                "label": "a"
+            },
+            {
+                "code": "b",
+                "label": "b"
+            }
+        ],
+        "label": "y99",
+        "methodology": "AutomatedTesting_LogisticRegression",
+        "sql_type": "text",
+        "type": "binominal",
+        "isCategorical": true
+    }
+]
