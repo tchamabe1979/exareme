@@ -10,7 +10,7 @@ from rpy2.robjects.packages import importr
 import rpy2.robjects as robjects
 
 
-endpointUrl='http://localhost:9090/mining/query/TTEST_ONESAMPLE'
+endpointUrl='http://88.197.53.38:9090/mining/query/TTEST_ONESAMPLE'
 folderPath = 'R_scripts'
 file ='ttest_onesample.Rmd'
 
@@ -134,7 +134,7 @@ def resultsComparison(data, jsonExaremeResult, jsonRResult):
                 if int(data[5]['value']) == 1:  #meandiff
                     print("meandiff")
                     assert (math.isclose(jsonExaremeResult[j]['Meandifference'],jsonRResult[i]['md[stud]'],rel_tol=0,abs_tol=10**(-abs(Decimal(str(jsonRResult[i]['md[stud]'])).as_tuple().exponent))))
-    assert (variableExist == len(jsonExaremeResult))                
+    assert (variableExist == len(jsonExaremeResult))
 
 if __name__ == '__main__':
     unittest.main()
